@@ -4,7 +4,6 @@ import urllib.request
 import os
 import cv2
 
-import bs4
 
 def get_html(url, params=None, output=None, ending=".txt"):
     """
@@ -69,7 +68,7 @@ def find_courses(url="",fn="",output="partial-urls.txt"):
 
     print("updated \""+output+"\"-file --")
 
-def get_pdfs(fn,base,folder="Misc/",url="https://medias2.fis-ski.com/pdf/homologations"): #url is pointer to pdf-portal
+def get_pdfs(fn,base,folder="Misc/"out="Misc/",url="https://medias2.fis-ski.com/pdf/homologations"): #url is pointer to pdf-portal
 
     file = open(fn, 'r')
     courses = file.readlines()
@@ -93,8 +92,15 @@ def get_pdfs(fn,base,folder="Misc/",url="https://medias2.fis-ski.com/pdf/homolog
                 codes = r.split()
                 for c in codes:
                     path = url
+                    name = ""
                     for e in c.split(","):
-                        path += "/" + e.strip("''")
+                        e = e.strip("''")
+                        path += "/" + e
+                        if e != "CC" and e != "NOR":
+                            name = e
+                    print(path)
+                    dst = os.path.join(out, name)
+                    urllib.request.urlretrieve(path, dst)
 
 
 
@@ -107,4 +113,4 @@ if __name__ == "__main__":
 
     #Actual runthrough of code as of now
     #find_courses(url=new_url, fn="nor_courses.txt")
-    get_pdfs("partial-urls.txt","https://www.fis-ski.com/DB/cross-country/homologations.html?place=", folder="NOR-courses/")
+    get_pdfs("partial-urls.txt","https://www.fis-ski.com/DB/cross-country/homologations.html?place=", folder="NOR-courses/",out="NOR-pdfs/")
