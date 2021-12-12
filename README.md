@@ -1,9 +1,9 @@
 # DAGBLADET/
  
  First edition of course-dataset for Investigative Journalism project. 
- - Wanted PDFs found in ["NOR-pdfs/"](https://github.com/jeanetmu/DAGBLADET/NOR-pdfs/) folder
- - Code to be generalized so that functions and methods can be reused for other wanted course extractions
- - World Championship courses to be extracted later 
+ - [x] Wanted PDFs found in ["NOR-pdfs/"](https://github.com/jeanetmu/DAGBLADET/NOR-pdfs/) folder
+ - [ ] Code to be generalized so that functions and methods can be reused for other wanted course extractions
+ - [ ] World Championship courses to be extracted later 
 
 ------------------------------------------
 
