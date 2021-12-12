@@ -112,13 +112,15 @@ def get_pdfs(fn,base,folder="Misc/",out="Misc/",url="https://medias2.fis-ski.com
                     urllib.request.urlretrieve(path, dst)
 
 if __name__ == "__main__":
-    url = "https://www.fis-ski.com/DB/cross-country/homologations.html?sectorcode=CC&homologationlevel=WC"
-    # get_html(url, output="wc-courses")
-    # find_courses(url=url,fn="wc-courses.txt",output="part-urls.txt")
-    get_pdfs("part-urls.txt","https://www.fis-ski.com/DB/cross-country/homologations.html?place=", folder="WC-courses/",out="WC-pdfs/")
 
     ## First runthrough of code - for Norwegian course extraction ##
     # new_url = "https://www.fis-ski.com/DB/cross-country/homologations.html?sectorcode=CC&nationcode=nor"
     # get_html(new_url, output="nor_courses")
     # find_courses(url=new_url, fn="nor_courses.txt", output="partial-urls.txt")
     # get_pdfs("partial-urls.txt","https://www.fis-ski.com/DB/cross-country/homologations.html?place=", folder="NOR-courses/",out="NOR-pdfs/")
+
+    ## Second runthrough of code - for all World Championship course extractions + potentially un-needed courses
+    # url = "https://www.fis-ski.com/DB/cross-country/homologations.html?sectorcode=CC&homologationlevel=WC"
+    # get_html(url, output="wc-courses")
+    # find_courses(url=url,fn="wc-courses.txt",output="part-urls.txt")
+    # get_pdfs("part-urls.txt","https://www.fis-ski.com/DB/cross-country/homologations.html?place=", folder="WC-courses/",out="WC-pdfs/")
