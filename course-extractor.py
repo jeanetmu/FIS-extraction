@@ -56,7 +56,7 @@ def find_courses(url="",fn="",output=""):
     else:
         out.write("\n##### Findings for crawl of url: \""+url+"\" #####\n")
 
-    pattern = r'(?<=onclick="fct_load_homologations\(\'DET\',\'place\=).*(?=\)\')'
+    pattern = r'(?<=onclick="fct_load_homologations\(\'DET\',\'place\=).*(?=\')'
     results = re.findall(pattern, text)
 
     for finding in results:
@@ -65,7 +65,7 @@ def find_courses(url="",fn="",output=""):
 
     print("updated \""+output+"\"-file --")
 
-def get_pdfs(fn,base,folder="Misc/"out="Misc/",url="https://medias2.fis-ski.com/pdf/homologations"):
+def get_pdfs(fn,base,folder="Misc/",out="Misc/",url="https://medias2.fis-ski.com/pdf/homologations"):
     """
     First gets all new html-pages as .txt-files for crawling. Then iterates over each page
     and extracts the wanted course-pdf-files with the "correct" (already used) information
@@ -82,12 +82,12 @@ def get_pdfs(fn,base,folder="Misc/"out="Misc/",url="https://medias2.fis-ski.com/
     file = open(fn, 'r')
     courses = file.readlines()
 
-    #First getting all the needed htmls as txt-files
-    for course in courses:
-        url = str(base+str(course))
-        name = re.findall(r'(?<=place=).*[A-Z].*(?=\&disciplinecode\=)', url)
-        if name: #potential for normalization of names here "%2C"="," og "+"=" "
-            get_html(url,output=folder+str(name[0])) #saving all files in the chosen folder
+    # #First getting all the needed htmls as txt-files
+    # for course in courses:
+    #     url = str(base+str(course))
+    #     name = re.findall(r'(?<=place=).*[A-Z].*(?=\&disciplinecode\=)', url)
+    #     if name: #potential for normalization of names here "%2C"="," og "+"=" "
+    #         get_html(url,output=folder+str(name[0])) #saving all files in the chosen folder
 
     #Then moving on to actual extraction
     pattern = r'(?<=onclick\=\"fct_download_certificatepdf\().*(?=\)\;)'
@@ -105,15 +105,17 @@ def get_pdfs(fn,base,folder="Misc/"out="Misc/",url="https://medias2.fis-ski.com/
                     for e in c.split(","):
                         e = e.strip("''")
                         path += "/" + e
-                        if e != "CC" and e != "NOR":
+                        if len(e) > 5: #actual pdf name would be longer than 5 elements
                             name = e
                     print(path) #prints url of what course we are currently working on extracting
                     dst = os.path.join(out, name)
                     urllib.request.urlretrieve(path, dst)
 
-
 if __name__ == "__main__":
-    # html_file = get_html("https://www.fis-ski.com/DB/cross-country/homologations.html",output="courses-FIS")
+    url = "https://www.fis-ski.com/DB/cross-country/homologations.html?sectorcode=CC&homologationlevel=WC"
+    # get_html(url, output="wc-courses")
+    # find_courses(url=url,fn="wc-courses.txt",output="part-urls.txt")
+    get_pdfs("part-urls.txt","https://www.fis-ski.com/DB/cross-country/homologations.html?place=", folder="WC-courses/",out="WC-pdfs/")
 
     ## First runthrough of code - for Norwegian course extraction ##
     # new_url = "https://www.fis-ski.com/DB/cross-country/homologations.html?sectorcode=CC&nationcode=nor"
