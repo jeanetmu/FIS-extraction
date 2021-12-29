@@ -112,7 +112,7 @@ def get_pdfs(fn,base,folder="Misc/",out="Misc/",url="https://medias2.fis-ski.com
                     urllib.request.urlretrieve(path, dst)
 
 if __name__ == "__main__":
-
+    print("yo")
     ## First runthrough of code - for Norwegian course extraction ##
     # new_url = "https://www.fis-ski.com/DB/cross-country/homologations.html?sectorcode=CC&nationcode=nor"
     # get_html(new_url, output="nor_courses")
