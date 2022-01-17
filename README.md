@@ -9,7 +9,7 @@
 ------------------------------------------
 
 ## Backup ["Misc/"](https://github.com/jeanetmu/DAGBLADET/tree/main/Misc)
-Backup-folder for storage if needed, used as initial value for several parameters in ["find_courses.py"](https://github.com/jeanetmu/DAGBLADET/blob/main/find_courses.py)-methods if not otherwise specified. Otherwise empty.
+Backup-folder for storage if needed, used as initial value for several parameters in ["course_extractor.py"](https://github.com/jeanetmu/DAGBLADET/blob/main/course_extractor.py)-methods if not otherwise specified. Otherwise empty.
 
 ------------------------------------------
 
