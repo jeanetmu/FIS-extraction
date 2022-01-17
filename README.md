@@ -9,7 +9,7 @@
 ------------------------------------------
 
 ## Backup ["Misc/"](https://github.com/jeanetmu/DAGBLADET/tree/main/Misc)
-Backup-folder for storage if needed, used as initial value for several parameters in ["find_courses.py"](https://github.com/jeanetmu/DAGBLADET/tree/main/find_courses.py)-methods if not otherwise specified. Otherwise empty.
+Backup-folder for storage if needed, used as initial value for several parameters in ["find_courses.py"](https://github.com/jeanetmu/DAGBLADET/blob/main/find_courses.py)-methods if not otherwise specified. Otherwise empty.
 
 ------------------------------------------
 
@@ -21,7 +21,7 @@ __Name of file:__ The scraped name from html url\
 ------------------------------------------
 
 ## Actual course-image-files stored in ["NOR-pdfs/"](https://github.com/jeanetmu/DAGBLADET/tree/main/NOR-pdfs/)
-All pdfs extracted from the urls in ["partial-urls.py"](https://github.com/jeanetmu/DAGBLADET/tree/main/partial-urls.py)\
+All pdfs extracted from the urls in ["partial-urls.txt"](https://github.com/jeanetmu/DAGBLADET/blob/main/partial-urls.txt)\
 __Name of file:__ The name found in the scraping of the .txt-version of the current html-page.\
 &ensp; Corresponding to NOR_*\*destination name\**_*\*Homologation-code\**.pdf\
 &ensp; Example: NOR_Bodo_20_51-05_2-5.pdf
@@ -36,7 +36,7 @@ __Name of file:__ The scraped name from html url\
 ------------------------------------------
 
 ## Actual course-image-files stored in ["WC-pdfs/"](https://github.com/jeanetmu/DAGBLADET/tree/main/WC-pdfs/)
-All pdfs extracted from the urls in ["part-urls.py"](https://github.com/jeanetmu/DAGBLADET/tree/main/part-urls.py)\
+All pdfs extracted from the urls in ["part-urls.txt"](https://github.com/jeanetmu/DAGBLADET/blob/main/part-urls.txt)\
 __Name of file:__ The name found in the scraping of the .txt-version of the current html-page.\
 &ensp; Corresponding to *\*countrycode\**_*\*destination name\**_*\*Homologation-code\**.pdf\
 &ensp; Example: CZE_Nove_Mesto_na_Morave_WC21_03-02_1-4.pdf
