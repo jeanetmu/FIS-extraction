@@ -1,4 +1,4 @@
-# DAGBLADET/
+# Image extraction
  
  First edition of course-dataset for Investigative Journalism project. 
  - [x] Wanted PDFs found in ["NOR-pdfs/"](https://github.com/jeanetmu/DAGBLADET/tree/main/NOR-pdfs/) folder
